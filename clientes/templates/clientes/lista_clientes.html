@@ -1,0 +1,29 @@
+{% extends 'clientes/base.html' %}
+
+{% block titulo %}
+Cadastro Cliente
+{% endblock titulo %}
+
+{% block conteudo %}
+<table class="table">
+    <thead>
+    <tr>
+        <th>Nome</th>
+        <th>Data Naascimento</th>
+        <th>Sexo</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for cliente in clientes %}
+    <tr>
+        <td>{{ cliente.nome }}</td>
+        <td>{{ cliente.data_nascimento }}</td>
+        <td>{{ cliente.sexo }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+<a href="{% url 'cadastrar_cliente' %}">
+    <button class="btn btn-primary">Cadastrar</button>
+</a>
+{% endblock conteudo %}
